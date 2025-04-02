@@ -5,11 +5,15 @@ const userSchema = mongoose.Schema(
     username: {
       type: String,
       required: true,
+      unique: true,
+      trim: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
+      trim: true,
+      lowercase: true,
       validate: {
         validator: function (v) {
           return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(v);
@@ -21,16 +25,15 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    isAdmin: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
     image: {
       type: String,
     },
     lastLogin: {
       type: Date,
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
     },
     isActive: {
       type: Boolean,
