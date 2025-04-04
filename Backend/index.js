@@ -7,6 +7,7 @@ import connectDB from "./config/db.js";
 import userRoutes from "./src/routes/userRoutes.js";
 import authRoutes from "./src/routes/authRoutes.js";
 import quesstionRoutes from "./src/routes/questionRoutes.js";
+import topicRoutes from "./src/routes/topicRoutes.js";
 
 dotenv.config();
 const port = process.env.PORT || 5001;
@@ -32,6 +33,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/questions", quesstionRoutes);
+app.use("/api/topics", topicRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
