@@ -1,19 +1,18 @@
 import jwt from "jsonwebtoken";
 
 const createToken = (res, userId) => {
-  if (!process.env.JWT_SECRET) {
-    throw new Error("JWT_SECRET is not defined in environment variables");
-  }
-
   const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
-    expiresIn: "7d",
+    expiresIn: "30d",
   });
 
+  // Set JWT as an HTTP-Only Cookie
   res.cookie("jwt", token, {
     httpOnly: true,
-    secure: true, // Luôn true vì Vercel sử dụng HTTPS
-    sameSite: "none", // Quan trọng để cookie hoạt động cross-domain
-    maxAge: 7 * 24 * 60 * 60 * 1000,
+    // secure: process.env.NODE_ENV !== "development",
+    // sameSite: "strict",
+    secure: true,
+    sameSite: "none",
+    maxAge: 30 * 24 * 60 * 60 * 1000,
   });
 
   return token;

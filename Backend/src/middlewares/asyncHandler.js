@@ -8,7 +8,7 @@
 
 const asyncHandler = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch((error) => {
-    next(error); // Chuyển lỗi cho middleware xử lý lỗi tiếp theo
+    res.status(500).json({ message: error.message });
   });
 };
 
