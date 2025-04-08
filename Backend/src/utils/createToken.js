@@ -11,8 +11,8 @@ const createToken = (res, userId) => {
 
   res.cookie("jwt", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production", // True for production, false for dev
-    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // "none" for cross-domain in prod
+    secure: true, // Luôn true vì Vercel sử dụng HTTPS
+    sameSite: "none", // Quan trọng để cookie hoạt động cross-domain
     maxAge: 7 * 24 * 60 * 60 * 1000,
   });
 

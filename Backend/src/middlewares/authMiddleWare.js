@@ -3,19 +3,12 @@ import User from "../models/UserModel.js";
 import asyncHandler from "./asyncHandler.js";
 
 const authenticate = asyncHandler(async (req, res, next) => {
+  console.log("Cookies received:", req.cookies);
+
   let token;
 
-  // First check for token in cookies
+  // Read JWT from the 'jwt' cookie
   token = req.cookies.jwt;
-
-  // If not found in cookies, check Authorization header
-  if (
-    !token &&
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
-    token = req.headers.authorization.split(" ")[1];
-  }
 
   if (token) {
     try {
@@ -24,11 +17,11 @@ const authenticate = asyncHandler(async (req, res, next) => {
       next();
     } catch (error) {
       res.status(401);
-      throw new Error("Invalid token");
+      throw new Error("Not authorized, token failed.");
     }
   } else {
     res.status(401);
-    throw new Error("No token");
+    throw new Error("Not authorized, no token.");
   }
 });
 
