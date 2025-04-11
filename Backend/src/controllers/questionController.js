@@ -131,30 +131,33 @@ const updateQuestion = asyncHandler(async (req, res) => {
   const question = await Question.findById(req.params.id);
 
   if (!question) {
-    res.status(404);
-    throw new Error("Question not found");
+    return res.status(404).json({
+      message: "Question not found",
+    });
   }
 
-  // Check if user is admin or the creator of the question
+  // Check authorization
   if (
     !req.user.isAdmin &&
     question.user.toString() !== req.user._id.toString()
   ) {
-    res.status(403);
-    throw new Error("Not authorized to update this question");
+    return res.status(403).json({
+      message: "Not authorized to update this question",
+    });
   }
 
   const { content, type, difficulty, priority, answers, tags, media, topic } =
     req.body;
 
-  // Validate question type if changing
+  // Validate question type
   if (
     type &&
     type !== question.type &&
     !["multiple_choice", "essay", "true_false", "matching"].includes(type)
   ) {
-    res.status(400);
-    throw new Error("Invalid question type");
+    return res.status(400).json({
+      message: "Invalid question type",
+    });
   }
 
   // Update fields
