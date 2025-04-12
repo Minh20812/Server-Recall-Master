@@ -59,38 +59,48 @@ RecallMaster is an interactive learning platform that helps users master concept
 
 ### Installation
 
-1. Clone the repository
+0. Create a file RecallMaster when open with VSCode
+
+1. Clone the repository for frontend
 
 ```bash
 git clone https://github.com/Minh20812/ReCall-Master.git
 cd RecallMaster
 ```
 
-2. Install dependencies
+2. Clone the repository for backend
+
+```bash
+git clone https://github.com/Minh20812/Server-Recall-Master.git
+cd RecallMaster
+```
+
+3. Install dependencies
 
 ```bash
 # Install frontend dependencies
-cd frontend
+cd Frontend
 npm install
 
 # Install backend dependencies
-cd ../backend
+cd ../Backend
 npm install
 ```
 
-3. Set up environment variables
+4. Set up environment variables
 
 ```bash
 # In backend directory, create .env file
 PORT=5001
 MONGODB_URI=your_mongodb_uri
 JWT_SECRET=your_jwt_secret
+NODE_ENV=development
 
 # In frontend directory, create .env file
 VITE_API_URL=http://localhost:5001/api
 ```
 
-4. Run the application
+5. Run the application
 
 ```bash
 # Run backend (from backend directory)
