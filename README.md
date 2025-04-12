@@ -11,15 +11,19 @@ RecallMaster is an interactive learning platform that helps users master concept
 
 ### Dashboard
 
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshots/Desktop_Dashboard.png)
+
+### Analytics
+
+![Analytics](./screenshots/Desktop_Analytics.png)
 
 ### Question Management
 
-![Questions](./screenshots/questions.png)
+![Questions](./screenshots/Desktop_Questions.png)
 
 ### Review System
 
-![Review](./screenshots/review.png)
+![Review](./screenshots/Desktop_Review.png)
 
 ## ✨ Features
 
@@ -58,7 +62,7 @@ RecallMaster is an interactive learning platform that helps users master concept
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/RecallMaster.git
+git clone https://github.com/Minh20812/ReCall-Master.git
 cd RecallMaster
 ```
 
@@ -107,8 +111,6 @@ Base URL: `https://server-recall-master.onrender.com/api`
 - `/api/topics` - Topic management
 - `/api/users` - User management
 
-For detailed API documentation, please visit [API Docs](your-api-docs-link)
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -127,8 +129,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Your Name
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
+- GitHub: [@nguyenquangminh](https://github.com/Minh20812)
+- Gmail: [@ngquangminh2128@gmail.com](ngquangminh2128@gmail.com)
 
 ## 🙏 Acknowledgments
 
